@@ -1,0 +1,96 @@
+.section {
+  padding: 8rem 0 7rem;
+  text-align: center;
+}
+.section-heading,
+.section-description {
+  margin-bottom: 1.2rem;
+}
+
+.info{
+    background-color: #B37D4E;
+    color: white
+}
+#drawDistrict{
+    margin-left: 10px;
+}
+#rstBtn{
+    margin-left: 10px;
+}
+#mapContainer{
+    margin:auto;
+    border:5px groove #000;
+    width: 70%;
+    height: 500px;
+}
+#findHouse{
+    padding-top: 20px;
+}
+#btns{
+    margin:auto;
+}
+.btnRow{
+    padding: 10px;
+}
+#opciones{
+    padding-top:20px;
+}
+#infomap{
+    font-weight:bold;
+}
+.button {
+  border-radius: 100px;
+}
+
+nav.primary ul,
+nav.primary ul li{
+    margin: 20px;
+}
+svg {
+  display: block;
+    margin: 0 auto;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.axis text{
+    font: Times;
+    font-size: 12px;
+    font-weight: bold;
+}
+nav.primary ul li{
+    display: inline;
+}
+
+.label-body{
+    padding-right: 20px;
+}
+.infoOptions{
+    font-weight: bold;
+}
+nav.primary ul li a{
+    display: inline-block;
+    line-height: 49px;
+    font-size: 20px;
+    color: black;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 0.08rem;
+}
+
+nav.primary ul li a:hover{
+    color: gray;
+    cursor: pointer;
+}
+
+nav.primary ul a{
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+}

@@ -1,15 +1,176 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title></title>
-    <link rel="stylesheet" href="style.css">
+
+  <meta charset="utf-8">
+  <title>Student Housing NYC</title>
+  <meta name="description" content="Website for ironhacks">
+  <meta name="author" content="Juan Diego Moreno">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="skeleton.css">
+  <link rel="stylesheet" href="custom.css">
+  
+  <link rel="icon" type="image/png" href="https://i.imgur.com/Y9kXJFF.png">
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" charset="utf-8"></script>
+      <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Hello World!</h1>
-        <button id="btn">Click me</button>
+
+  <div class ="section main">
+    <div class ="container">      
+      <h1>Welcome to Student Housing NYC</h1>
+      <p class="main-info">Do you want to find the best place to stay while you're studying?</p>
+      <a class="button button-primary" id ="searchBtn">START SEARCHING</a>
     </div>
+  </div>
+  
+  
+  <div class ="section navigation" id ="navig">
+      <nav class ="container primary">
+          <div class="sixteen columns">
+              <ul>
+                  <a>|</a>
+                  <li><a id ="scrollMap">MAP</a></li>
+                  <a>|</a>
+                  <li><a id ="scrollCharts">CHARTS</a></li>
+                  <a>|</a>
+                  <li><a id ="scrollAbout">ABOUT</a></li>
+                  <a>|</a>
+                  <li><a id ="scrollContact">CONTACT</a></li>
+                  <a>|</a>
+              </ul>
+          </div>
+      </nav>
+  </div>
+  
+  <div class="section map" id="mapcont">
+      <div class ="row">
+          <div class ="seven columns">
+              <div id ="mapContainer"></div>
+          </div>
+          <div class ="five columns" id ="btns">
+              <h3 id ="infomap">Select an option to filter on the map</h3>
+              <h5 id = "infoOptions">Boroughs</h5>
+              <label>
+                  <input type="checkbox" id = "brookSel">
+                  <span class="label-body" >Brooklyn</span>
+                  <input type="checkbox" id = "manSel">
+                  <span class="label-body" >Manhattan</span>
+              </label>
+              <label>
+                  <input type="checkbox" id = "queSel">
+                  <span class="label-body" >Queens</span>
+                  <input type="checkbox"  id = "staSel">
+                  <span class="label-body">Staten Island</span>
+              </label>
+              <label>
+                  <input type="checkbox"  id = "broSel">
+                  <span class="label-body">Bronx</span>
+              </label>
+              <h5 id = "infoOptions">Filters</h5>
+              <label>
+                  <input type="checkbox" id = "criSel">
+                  <span class="label-body">Crimes</span>
+                  <input type="checkbox" id = "houSel">
+                  <span class="label-body">Housing</span>
+              </label>
+              <label>
+                    <input type="checkbox" id = "musSel">
+                    <span class="label-body">Museums</span> 
+                    <input type="checkbox" id = "artSel">
+                    <span class="label-body">Art Galleries</span>
+
+              </label>
+              <label>
+                    <input type="checkbox" id = "neighSel">
+                    <span class="label-body">Neighborhoods</span>
+              </label>
+              <div class ="row">
+                  <a class ="button button-primary" id ="searchHouse">SEARCH</a>
+                  <a class ="button button-primary" id="drawDistrict">DRAW DISTRICTS</a>
+                  <a class ="button button-primary" id ="rstBtn">RESET MAP</a>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  <div class="section charts" id ="chartsec">
+      <div class = "row">
+          <div class ="twelve columns">
+              <h3>Select the option you prefer</h3>
+              <div class ="row">
+                    <a class ="button button-primary" id ="sglPara">SINGLE PARAMETER</a>  
+                      
+              </div>
+              <div class ="row">
+                  <a class ="button button-primary" id ="avgPara">AVERAGE</a>
+                  <a class = "button button-primary" id = "scoreInfBtn">SCORING INFO</a>
+              </div>
+              <div class = "row" id = "singleSrch" style = "display:none">
+                  <label for="single">Select a parameter</label>
+                  <select id = "single">
+                      <option value = "1">Safety</option>
+                      <option value = "2">Distance</option>
+                      <option value = "3">Afordability</option>
+                  </select>
+                  <div class ="row">
+                    <a class ="button button-primary" id ="goSingle">SEARCH</a>    
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class = "row" style = "display:none">
+          <script src="graphs.js"></script>
+      </div>
+  </div>
+  <div class ="section downloads" id = "downloadCsv">
+      <h3>Export CSV files</h3>
+    <div class = "row">
+        <label for="dwnld">Select the data you want to download</label>
+        <select id = "dwnld">
+            <option value = "1">Safety</option>
+            <option value = "2">Distance</option>
+            <option value = "3">Afordability</option>
+            <option value = "4">Average</option>
+        </select>
+        <div class = "row">
+            <a class ="button button-primary" id ="exportCSV">DOWNLOAD</a>  
+        </div>
+      </div>  
+  </div>
+    
+    <div class="section info" id="infosec">
+      <div class ="container-info">
+          <h2>About this site</h2>
+          <p>This site will help you finding the best district to live according to different parameters, it will also let you visualize on a New York map some characteristics of the different boroughs and districts of New York.</p>
+          <div>Icons made by <a href="https://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+          <div>Icons made by <a href="https://www.flaticon.com/authors/prosymbols" title="Prosymbols">Prosymbols</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+          <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+      </div>
+  </div>
+  
+  <div class="section contact" id ="contsec">
+      <div class ="container">
+          <h5>Juan Diego Moreno Mora</h5>
+          <h7>Student of the National University of Colombia</h7>
+            <h6>Email: judmorenomo@unal.edu.co</h6>
+      </div>
+  </div>
+    
     <script src="index.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAr7IlHMvg9Zw1JZ8zLIg0QEqQaNacGio4&libraries=visualization&callback=initMap">
+    </script>
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
 </html>
